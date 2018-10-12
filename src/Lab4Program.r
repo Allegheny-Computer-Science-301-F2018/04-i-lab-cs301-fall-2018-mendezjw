@@ -26,13 +26,31 @@ geom_vline(xintercept = 2018)
 
 #Question 3.
 
+#With Sqrt
 ggplot(data = dat_caliFocus) + geom_bar(mapping = aes(x = state,
-     y = , fill = yearBlock), position = "dodge",
+     y = sqrt(count), fill = yearBlock), position = "dodge",
      stat = "identity") + theme(axis.text.x = element_text(angle = 90,
      hjust = 1, vjust=-0.01))
 
+#Without Sqrt
+ggplot(data = dat_caliFocus) + geom_bar(mapping = aes(x = state,
+     y = count, fill = yearBlock), position = "dodge",
+     stat = "identity") + theme(axis.text.x = element_text(angle = 90,
+     hjust = 1, vjust=-0.01))
+
+# I think that sqrt(count) has more variability across the years because it
+# outputs a larger amount of data on the plot.
+
 #Question 4.
 
+us_contagious_diseases$yearBlock[us_contagious_diseases$year == between[1950, 1970]] <- "1950’s"
+
+ggplot(data = us_contagious_diseases) + geom_bar(mapping = aes(x = state,
+     y = sqrt(count), fill = yearBlock), position = "dodge",
+     stat = "identity") + theme(axis.text.x = element_text(angle = 90,
+     hjust = 1, vjust=-0.01))
+
 #Question 5.
+
 
 #Question 6.
